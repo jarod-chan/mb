@@ -9,6 +9,8 @@
     	<property name="locations" value="classpath:config/*.properties"/>
   	</bean>
   	
+  	<import resource="infrastructure-mybatis.xml"/>
+  	
 <!-- 	<import resource="infrastructure-email.xml" />
 	<import resource="infrastructure-persistence.xml"/>
 	
