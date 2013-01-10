@@ -42,7 +42,6 @@
 	
 	<context:component-scan base-package="cn.fyg.mb.interfaces" />
 	
-<!-- 	<import resource="servletSecurity.xml" /> -->
+	<import resource="servletLog.xml" /> 
 	
-
 </beans>

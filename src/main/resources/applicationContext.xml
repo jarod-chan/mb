@@ -10,13 +10,11 @@
   	</bean>
   	
   	<import resource="infrastructure-mybatis.xml"/>
+  	<import resource="infrastructure-email.xml" />
   	
-<!-- 	<import resource="infrastructure-email.xml" />
-	<import resource="infrastructure-persistence.xml"/>
-	
-	<context:component-scan base-package="cn.fyg.qt.infrastructure" />
-	<context:component-scan base-package="cn.fyg.qt.domain" />
-	<context:component-scan base-package="cn.fyg.qt.application" /> -->
+  	<context:component-scan base-package="cn.fyg.mb.infrastructure" />
+  	<context:component-scan base-package="cn.fyg.mb.domain" />
+  	<context:component-scan base-package="cn.fyg.mb.application" />
 	
 
 </beans>

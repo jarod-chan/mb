@@ -8,15 +8,26 @@
 		<result property="uuid" column="uuid" />
 		<result property="realname" column="realname" />
 	</resultMap>
-	
+
 	<select id="getAll" resultMap="hashmap">
-		select uuid, realname FROM userentity
+		select uuid, realname FROM
+		userentity
+	</select>
+
+	<insert id="save" parameterType="cn.fyg.mb.domain.User">
+		insert into userentity
+		(key_,realname) values(#{key_},#{realname})
+	</insert>
+	
+	<select id="find" resultType="User" parameterType="string" >
+	    select uuid, realname FROM
+		userentity
+		where key_=#{key_}
 	</select>
 	
-	<!-- 此处配置有误 -->
-	
-<!-- 	<select id="getList"  resultType="List<HashMap<String,Object>>">
-		select uuid, realname FROM userentity
-	</select> -->
+	<delete id="delete" parameterType="string" >
+		delete from userentity
+		where key_=#{key_}
+	</delete>
 
 </mapper>

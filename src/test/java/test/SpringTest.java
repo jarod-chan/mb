@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import cn.fyg.mb.domain.User;
 import cn.fyg.mb.domain.UserMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,5 +30,21 @@ public class SpringTest {
 			System.out.println(map.get("realname"));
 		}
 	}
+	
+
+	
+	@Test
+	public void testSave(){
+		User user=new User();
+		user.setKey_("key3");
+		user.setRealname("realname3");
+		userMapper.save(user);
+		
+		user=userMapper.find("key3");
+		assertNotNull(user);
+		
+		userMapper.delete("key3");
+	}
+	
 
 }
