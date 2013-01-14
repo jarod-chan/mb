@@ -9,15 +9,17 @@
 
 </head>
 <body>
-	<table>
-		<tr>
-			<td>uuid</td><td>reanlname</td>
-		</tr>
-		<c:forEach var="map" items="${userMap}">
-			<tr>
-				<td>${map.uuid}</td><td>${map.realname}</td>
-			</tr>
-		</c:forEach>
-	</table>
+${message}
+<form action="/mb/file/upload" method="post" enctype="multipart/form-data">
+	<input type="text" name="name"><br>
+	<input type="file" name="file"><br>
+	<input type="submit" value="upload">
+</form>
+
+<form action="/mb/file/save" method="post">
+	<input type="text" name="name"><br>
+	<input type="submit" value="submit">
+</form>
+
 </body>
 </html>
