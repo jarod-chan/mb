@@ -23,7 +23,7 @@ public class TestUserService {
 		user.setRealname("realname4");
 		this.userService.save(user);
 		
-		this.userService.save(user);
+		this.userService.delete(user.getKey_());
 	}
 
 }
