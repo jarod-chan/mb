@@ -48,7 +48,7 @@
 		<!-- 设置编码，防止文件名的中文乱码 -->
         <property name="defaultEncoding" value="utf-8" />
         <!-- 设置上传文件大小的参数 -->
-		<property name="maxUploadSize" value="1000000" />
+		<property name="maxUploadSize" value="1073741824" />
 	</bean>
 	
 </beans>
