@@ -18,21 +18,16 @@ import org.springframework.web.multipart.MultipartFile;
  *
  */
 @Controller
-@RequestMapping("file")
-public class FileCtl {
+@RequestMapping("general")
+public class GeneralCtl {
 	
-	public static final Logger logger=LoggerFactory.getLogger(FileCtl.class);
+	public static final Logger logger=LoggerFactory.getLogger(GeneralCtl.class);
 	
-	private static final String path="file/";
 	
-	private interface Page{
-		String UPLOAD=path+"upload";
-	}
-	
-	@RequestMapping(value="upload",method=RequestMethod.GET)
+	@RequestMapping(value="",method=RequestMethod.GET)
 	public String toUpload(Map<String,Object> map){
-		map.put("message","上传文件");
-		return Page.UPLOAD;
+		map.put("message","一般文件上传功能");
+		return "file/general";
 	}
 	
 	@RequestMapping(value="upload",method=RequestMethod.POST)
@@ -48,13 +43,13 @@ public class FileCtl {
 		} catch (IOException e) {
 			logger.error("保存文件出错", e);
 		}
-		return "redirect:./upload";
+		return "redirect:../general";
 	}
 	
 	@RequestMapping(value="save",method=RequestMethod.POST)
 	public String save(@RequestParam("name")String name){
 		System.out.println(name);
-		return "redirect:./upload";
+		return "redirect:../general";
 	}
 
 }

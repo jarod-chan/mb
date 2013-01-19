@@ -1,4 +1,4 @@
-package cn.fyg.mb.interfaces.demo;
+package cn.fyg.mb.interfaces.file;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,19 +25,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 使用jquery+swfupload实现文件上传
+ * @author jhon.chen@gmail.com
+ *
+ */
 @Controller
-@RequestMapping("demo")
-public class DemoCtl {
+@RequestMapping("jquery")
+public class JqueryCtl {
 	
-	public static final Logger logger=LoggerFactory.getLogger(DemoCtl.class);
+	public static final Logger logger=LoggerFactory.getLogger(JqueryCtl.class);
 
 	public static final int MB = 1024 * 1024;
 	
-	@RequestMapping(value="upload",method=RequestMethod.GET)
+	@RequestMapping(value="",method=RequestMethod.GET)
 	public String toUpload(){
-		return "demo/demo";
+		return "file/jquery";
 	}
 
 	@RequestMapping(value = "/doupload", method = RequestMethod.POST)

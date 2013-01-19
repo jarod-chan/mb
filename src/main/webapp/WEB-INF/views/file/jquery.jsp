@@ -77,7 +77,7 @@
     <script type="text/javascript">
         $(function () {
             $('#swfupload-control').swfupload({
-                upload_url:"/mb/demo/doupload4",
+                upload_url:"/mb/jquery/doupload4",
                 file_post_name:'uploadfile',
                 file_size_limit:"20000 MB",
                 file_types:"*.*",
