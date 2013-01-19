@@ -5,16 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -43,48 +37,6 @@ public class JqueryCtl {
 	public String toUpload(){
 		return "file/jquery";
 	}
-
-	@RequestMapping(value = "/doupload", method = RequestMethod.POST)
-	protected void doupload(HttpServletRequest request,
-			HttpServletResponse response)
-			throws javax.servlet.ServletException, IOException {
-
-		DiskFileItemFactory fileItemFactory = new DiskFileItemFactory(10 * MB,
-				new File("D://file-upload//temp//"));
-		ServletFileUpload uploader = new ServletFileUpload(fileItemFactory);
-		uploader.setSizeMax(1200 * MB);
-		List fields = null;
-		try {
-			fields = uploader.parseRequest(request);
-		} catch (FileUploadException e) {
-			e.printStackTrace();
-			return;
-		}
-		Iterator iter = fields.iterator();
-		while (iter.hasNext()) {
-			FileItem item = (FileItem) iter.next();
-
-			if (!item.isFormField()) {
-				try {
-					processUploadedFile(item);
-				} catch (Exception e) {
-					e.printStackTrace();
-					return;
-				}
-			}
-		}
-
-		response.getOutputStream().println("200 OK");
-
-	}
-
-	private void processUploadedFile(FileItem item) throws Exception {
-		String basePath = "D://file-upload//";
-		item.write(new File(basePath + item.getName()));
-		System.out.println("write file to '" + basePath + item.getName() + "'");
-	}
-	
-	
 	
 	@RequestMapping(value = "/doupload3", method = RequestMethod.POST)
 	public void upload(HttpServletRequest request,
