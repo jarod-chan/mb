@@ -21,7 +21,7 @@
 				flash_url : "/mb/resources/plugin/swfupload/swfupload.swf",
 				upload_url: "/mb/swf/upload",
 				post_params: {"PHPSESSID" : ""},
-				file_size_limit : "100 MB",
+				file_size_limit : "0",
 				file_types : "*.*",
 				file_types_description : "All Files",
 				file_upload_limit : 100,
