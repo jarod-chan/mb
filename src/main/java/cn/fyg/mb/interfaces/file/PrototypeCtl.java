@@ -23,6 +23,11 @@ public class PrototypeCtl {
 		return "file/prototype";
 	}
 	
+	@RequestMapping(value="2",method=RequestMethod.GET)
+	public String toUpload2(){
+		return "file/prototype2";
+	}
+	
 	@RequestMapping(value = "upload", method = RequestMethod.POST)
 	@ResponseBody
 	public void upload(@RequestParam("Filedata") MultipartFile file) {
