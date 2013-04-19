@@ -13,7 +13,11 @@
 <script type="text/javascript" src="/mb/resources/js/jquery.js"></script>
 <script type="text/javascript" src="/mb/resources/plugin/uploadify/jquery.uploadify.js"></script>
 
-
+<style type="text/css">
+ .uploadify{
+ 	float: left;
+ }
+</style>
 
 
 <script type="text/javascript">
@@ -22,6 +26,7 @@
 	    	buttonText    : '上传文件',
 	        swf           : '/mb/resources/plugin/uploadify/uploadify.swf',
 	        uploader      : '/mb/upf/upload',
+	        queueID : 'some_file_queue',
 	        height        : 20,
 	        width         : 80,
 	        //返回一个错误，选择文件的时候触发
@@ -47,7 +52,7 @@
 	        },
 	        //上传到服务器，服务器返回相应信息到data里
 	        onUploadSuccess:function(file, data, response){
-	            alert(data);
+	          //  alert(data);
 	        }
 	    });
 	});
@@ -57,10 +62,10 @@
 </head>
 
 <body>
-<div id="queue"></div>
 
-<div style="width:100px;float: left;"><input id="file_upload" type="button"></div><span>ssdd</span>
 
+<input id="file_upload" type="button" ><span>ssdd</span>
+<div id="some_file_queue"></div>
 
 
 
