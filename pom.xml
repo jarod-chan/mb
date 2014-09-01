@@ -22,36 +22,14 @@
 	<profiles>
 		<profile>
 			<id>dev</id>
-			<properties>
-				<dbs.driver>com.mysql.jdbc.Driver</dbs.driver>
-				<dbs.url>jdbc:mysql://localhost:3306/mb_dev</dbs.url>
-				<dbs.dialect>org.hibernate.dialect.MySQL5Dialect</dbs.dialect>
-				<dbs.username>root</dbs.username>
-				<dbs.password>0</dbs.password>
-				<dbs.showsql>true</dbs.showsql>
-			</properties>
-		</profile>
-		<profile>
-			<id>test</id>
-			<properties>
-				<dbs.driver>com.mysql.jdbc.Driver</dbs.driver>
-				<dbs.url>jdbc:mysql://localhost:3306/mb_test</dbs.url>
-				<dbs.dialect>org.hibernate.dialect.MySQL5Dialect</dbs.dialect>
-				<dbs.username>root</dbs.username>
-				<dbs.password>*</dbs.password>
-				<dbs.showsql>true</dbs.showsql>
-			</properties>
-		</profile>
-		<profile>
-			<id>prod</id>
-			<properties>
-				<dbs.driver>com.mysql.jdbc.Driver</dbs.driver>
-				<dbs.url>jdbc:mysql://localhost:3306/mb</dbs.url>
-				<dbs.dialect>org.hibernate.dialect.MySQL5Dialect</dbs.dialect>
-				<dbs.username>root</dbs.username>
-				<dbs.password>*</dbs.password>
-				<dbs.showsql>false</dbs.showsql>
-			</properties>
+			<activation>  
+		     <activeByDefault>true</activeByDefault>  
+		    </activation>  
+			<build>
+				<filters>
+					<filter>profile/profile-development.properties</filter>
+				</filters>
+			</build>
 		</profile>
 	</profiles>
 
@@ -280,12 +258,17 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
 	</dependencies>
 
 
 
 	<repositories>
-		<!-- JBoss Repository used for Java EE 6 pieces -->
+		<!-- JBoss Repository used for Java EE 6 pieces 
 		<repository>
 			<id>repository.jboss.org</id>
 			<name>JBoss Repository</name>
@@ -300,6 +283,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		-->
 	</repositories>
 
 	<build>
